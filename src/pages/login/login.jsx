@@ -1,57 +1,63 @@
-import React from 'react'
-import img from "../../assets/Group 1116606595.png"
-import img1 from "../../assets/Wishlist.png"
-import img2 from "../../assets/Cart1 with buy.png"
-import TextField from '@mui/material/TextField';
+import React from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { login } from '../../reducers/login/loginSlice';
+import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const validationSchema = Yup.object().shape({
+  userName: Yup.string().required('Username is required'),
+  password: Yup.string().required('Password is required'),
+});
+
+export default function Login(){
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   return (
     <div>
-     <div className='flex justify-around items-center mt-[10px]'>
-     <div className='ml-[20px]'>
-        <img src={img} alt="" />
-      </div>
-      <div className='flex'> 
-        <p className='mr-[30px]'>Home</p>
-        <p className='mr-[30px]'>Contact</p>
-        <p className='ml-[30px]'>About</p>
-        <p className='ml-[30px]'>Sign Up</p>
-      </div>
-      <div className='flex'>
-        <input className='border-[1px] border-[black] w-[200px] rounded-[3px] mr-[30px]' type="text"  placeholder='  What are you looking for?'/>
-        <img className='mr-[20px]' src={img1} alt="" />
-        <img className='mr-[20px]' src={img2} alt="" />
-      </div>
-     </div>
-
-     <div className='w-[310px] ml-[500px] mt-[80px]'>
-
-
-        <div className='ml-[10px]'>
-            <h1 className='text-[30px] pt-[30px]'>Log in to Exclusive</h1>
-            <p className='text-[18px] mt-[10px]'>Enter your details below</p>
+      <div className="w-[310px] ml-[500px] mt-[60px]">
+            <Formik
+              initialValues={{ userName: '', password: '' }}
+              validationSchema={validationSchema}
+              onSubmit={(values) => {
+                dispatch(login(values))
+                navigate('/');
+              }}
+            >
+              
+              <Form className="flex flex-col items-center">
+              <div>
+          <h1 className='text-[30px] pt-[30px]'>Log in to Exclusive</h1>
+          <p className='text-[18px] mt-[10px] pb-[30px]'>Enter your details below</p>
         </div>
-        <div className='mt-[30px] ml-[5px]'>
-        <TextField
-        style={{"marginTop":"20px","width":"300px"}}
-          id="outlined-password-input"
-          label="Email"
-          type="Email"
-          autoComplete="current-password"
-        />
-        <TextField
-        style={{"marginTop":"20px","width":"300px"}}
-          id="outlined-password-input"
-          label="Password"
-          type="password"
-          autoComplete="current-password"
-        /> 
-        <p className='ml-[85px] text-[#DB4444] mt-[20px]'>Forget Password?</p>
-        <button className='text-[white] bg-[#DB4444] w-[300px] h-[40px] rounded-[5px] mt-[20px]'>Log In</button>
-        </div>
-     </div>
+                <Field
+                  className="w-80 h-10 px-4 mb-4 border rounded focus:outline-none"
+                  type="text"
+                  name="userName" 
+                  placeholder="Phone number, username, or email"
+                />
+                <ErrorMessage name="userName" component="div" className="text-red-600" />
+                <Field
+                  className="w-80 h-10 px-4 mb-4 border rounded focus:outline-none"
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                />
+                <ErrorMessage name="password" component="div" className="text-red-600" />
+                <button type='submit'
+                 className='text-[white] bg-[#DB4444] w-[320px] h-[40px] rounded-[5px] mt-[20px]'>
+            Log In
+          </button>
+          <Link
+                to={"/registration"}
+                className="text-[#DB4444] hover:text-blue-800 font-bold text-sm mt-[30px]"
+              >
+                Forgot password  ?
+              </Link>
+              </Form>
+            </Formik>
+          </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
