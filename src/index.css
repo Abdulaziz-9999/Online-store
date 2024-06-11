@@ -1,3 +1,278 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* styles.css */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px;
+  }
+  
+  .product-card {
+    position: relative;
+    width: 300px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .product-details {
+    padding: 16px;
+  }
+  
+  .product-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .product-price {
+    color: red;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  .product-old-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 14px;
+  }
+  
+  .product-discount {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ff0000;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  
+  .product-rating {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+  }
+  
+  .product-rating img {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+  }
+  
+  .product-actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 16px;
+  }
+  
+  .product-actions svg {
+    width: 24px;
+    height: 24px;
+    fill: #333;
+    cursor: pointer;
+  }
+  
+  @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.swiper {
+    width: 100%;
+    height: 420px;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.n1:hover{
+    background-color: #DB4444;
+    color: white;
+}
+
+/* Container styling */
+.sidebar {
+    margin-left: 80px;
+    margin-top: 100px;
+    width: 250px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+/* Section titles */
+.sidebar h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #DB4444;
+}
+
+/* Sections styling */
+.sidebar .category,
+.sidebar .brands,
+.sidebar .features,
+.sidebar .price-range,
+.sidebar .condition,
+.sidebar .ratings {
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 5px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 14px;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Checkbox and radio button styling */
+.sidebar input[type="checkbox"],
+.sidebar input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Price range styling */
+.sidebar .price-range input[type="number"] {
+    width: 80px;
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.sidebar .price-range input[type="range"] {
+    width: 100%;
+}
+
+.sidebar .price-range button {
+    background-color: white;
+    color: #DB4444;
+    border: none;
+    border: 1px solid #DB4444;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 210px;
+}
+
+/* Rating stars styling */
+.sidebar .ratings label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sidebar .ratings label .star {
+    color: #ffcc00;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+/* src/ContactForm.css */
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    background-color: #f9f9f9;
+}
+
+.contact-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.info-box {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.info-box .icon {
+    font-size: 24px;
+    color: red;
+    margin-bottom: 10px;
+}
+
+.info-box h2 {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.contact-form {
+    flex: 2;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.contact-form button {
+    background-color: #DB4444;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contact-form button:hover {
+    background-color: darkred;
+}
+
+.n2{
+    font-weight: 600;
+}

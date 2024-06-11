@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import {
   About,
+  Carzina,
   Contact,
   Home,
   Layout,
@@ -68,6 +69,14 @@ function App() {
           element: (
             <Suspense fallback={<div>Loading...</div>}>
               <WishList />
+            </Suspense>
+          ),
+        },
+        {
+          path: 'carzina',
+          element: (
+            <Suspense fallback={<div>Loading...</div>}>
+              <Carzina />
             </Suspense>
           ),
         },
